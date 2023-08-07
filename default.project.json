@@ -1,0 +1,35 @@
+{
+  "name": "Gold Rush Mod",
+  "tree": {
+    "$className": "DataModel",
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$path": "src/Server",
+      "$ignoreUnknownInstances": true
+    },
+
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$path": "src/Shared",
+      "$ignoreUnknownInstances": true
+    },
+
+    "StarterGui": {
+      "$className": "StarterGui",
+      "$path": "src/UI",
+      "$ignoreUnknownInstances": true
+    },
+    
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "$path": "src/Client",
+        "$ignoreUnknownInstances": true
+      },
+
+      "$ignoreUnknownInstances": true
+    }
+  }
+}
