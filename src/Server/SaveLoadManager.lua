@@ -15,12 +15,23 @@ local dict_PlayerGold = {}
 
 function srp_SaveLoadManager:fn_AddGold(int_userId, any_value)
 	dict_PlayerGold[int_userId] += any_value
+	return dict_PlayerGold[int_userId]
 end
 
 function srp_SaveLoadManager:fn_GetGold(int_userId)
 	return dict_PlayerGold[int_userId]
 end
 
+
+
+local function fn_CreatePacket(int_userId, bool_pcallStatus, any_value)
+	local dict_packet = {
+		userId = int_userId,
+		status = bool_pcallStatus,
+		value = any_value
+	}
+	return dict_packet
+end
 
 
 local function fn_SaveData(int_userId, any_value)
@@ -32,7 +43,7 @@ local function fn_SaveData(int_userId, any_value)
 		warn("Failed to save...")
 	end
 
-	return {bool_pcallStatus, any_value}
+	return fn_CreatePacket(int_userId, bool_pcallStatus, any_value)
 end
 
 
@@ -47,23 +58,29 @@ local function fn_LoadData(int_userId)
 		warn(plr_player.Name, " has no data...")
 	end
 
-	return {bool_pcallStatus, any_value}
+	return fn_CreatePacket(int_userId, bool_pcallStatus, any_value)
 end
 
 
 
 local function fn_OnPlayerRemoving(plr_player)
-	local int_userID = plr_player.UserId
-	fn_SaveData(int_userID, dict_PlayerGold[int_userID])
+	local int_userId = plr_player.UserId
+	fn_SaveData(int_userId, dict_PlayerGold[int_userId])
 end
 
 
 
 local function fn_OnPlayerAdded(plr_player)
-	local int_userID = plr_player.UserId
+	local int_userId = plr_player.UserId
 
-	local table_packet = fn_LoadData(int_userID)
-	dict_PlayerGold[int_userID] = table_packet[1] or 0
+	local dict_packet = fn_LoadData(int_userId)
+
+	-- load failed or player has no data, set value to 0
+	if not dict_packet.status then
+		dict_packet.value = 0
+	end
+
+	dict_PlayerGold[int_userId] = dict_packet.value
 end
 
 
