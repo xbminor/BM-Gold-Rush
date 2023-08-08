@@ -21,7 +21,7 @@ local function processClientEvent(params)
 	if params.showAlert then
 		-- Show warning frame
 		warningFrame.Visible = true
-		goldFrame.Visible = true
+		goldFrame.Visible = false
 	else
 		-- Update text label
 		amountLabel.Text = params.gold
