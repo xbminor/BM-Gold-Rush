@@ -4,7 +4,7 @@ local TweenService = game:GetService("TweenService")
 local uiEvent = ReplicatedStorage:WaitForChild("UIEvent")
 
 local screenGUI = script.Parent
-local goldFrame = screenGUI.ScoreBarFrame
+local goldFrame = screenGUI.ScoreBarFrameT1
 local warningFrame = screenGUI.WarningFrame
 local amountLabel = goldFrame.GoldAmount
 local goldIcon = goldFrame.GoldIcon
