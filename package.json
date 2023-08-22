@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@quenty/binder": "^8.24.0",
     "@quenty/loader": "^6.2.1",
     "@quenty/servicebag": "^6.8.0"
   }
