@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "@quenty/binder": "^8.24.0",
+    "@quenty/cooldown": "^5.29.0",
     "@quenty/loader": "^6.2.1",
+    "@quenty/promise": "^6.8.0",
     "@quenty/servicebag": "^6.8.0"
   }
 }

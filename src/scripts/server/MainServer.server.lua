@@ -8,7 +8,3 @@ ServiceBag:GetService(Packages.GoldService)
 
 ServiceBag:Init()
 ServiceBag:Start()
-
-
-
-require(Packages.GoldSpawner)
